@@ -26,7 +26,7 @@
 
             <Button x:Name="btnTransacao" Style="{StaticResource btnMenuLateral}" Click="Transacao_Click">
                 <StackPanel     Style="{StaticResource spPadrao}">
-                    <FontIcon   Glyph="&#x1F4B5;" Style="{StaticResource fiMenuLateral}"/>
+                    <FontIcon x:Name="fiTeste"   Glyph="&#x1F4B5;" Style="{StaticResource fiMenuLateral}"/>
                     <TextBlock  Text="Transações" Style="{StaticResource txbMenuLateral}"/>
                 </StackPanel>
             </Button>

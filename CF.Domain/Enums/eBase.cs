@@ -26,31 +26,31 @@ namespace CF.Domain.Enums
 
     public enum eIconesGlyph
     {
-        [CodigoGlyph("1F4CA")]
+        [CodigoGlyph("\uF4CA")]
         Dashboard,
 
-        [CodigoGlyph("1F4B5")]
+        [CodigoGlyph("\uF4B5")]
         Transacao,
 
-        [CodigoGlyph("25B2")]
+        [CodigoGlyph("\u25B2")]
         TrianguloCima,
-        [CodigoGlyph("25B6")]
+        [CodigoGlyph("\u25B6")]
         TrianguloDireita,
-        [CodigoGlyph("25BC")]
+        [CodigoGlyph("\u25BC")]
         TrianguloBaixo,
-        [CodigoGlyph("25C0")]
+        [CodigoGlyph("\u25C0")]
         TrianguloEsquerda,
         
-        [CodigoGlyph("F784")]
+        [CodigoGlyph("\uF784")]
         Circulo,
-        [CodigoGlyph("F78D")]
+        [CodigoGlyph("\uF78D")]
         Quadrado,
-        [CodigoGlyph("F798")]
+        [CodigoGlyph("\uF798")]
         Losangulo,
 
-        [CodigoGlyph("F7A4")]
+        [CodigoGlyph("\uF7A4")]
         Adicionar,
-        [CodigoGlyph("F7AB")]
+        [CodigoGlyph("\uF7AB")]
         Fechar,
     }
 

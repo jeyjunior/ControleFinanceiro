@@ -17,6 +17,9 @@
     <SolidColorBrush x:Key="Vermelho3" Color="#FFB42819"/>
     <SolidColorBrush x:Key="Vermelho4" Color="#FF820000"/>
 
+    <SolidColorBrush x:Key="Amarelo" Color="#FFffd700"/>
+    <SolidColorBrush x:Key="Laranja" Color="#FFF08014"/>
+    
     <SolidColorBrush x:Key="Roxo" Color="#FF874cfc"/>
     <SolidColorBrush x:Key="Rosa" Color="#FFff21d6"/>
     <SolidColorBrush x:Key="Violeta" Color="#FFff2159"/>

@@ -13,7 +13,18 @@ namespace CF.Domain.Utilitarios
     {
         public static Brush ObterCor(eCores eCores)
         {
-            return (Brush)Application.Current.Resources[eCores.ToString()];
+            Brush brush = null;
+
+            try
+            {
+                brush = (Brush)Application.Current.Resources[eCores.ToString()];
+            }
+            catch 
+            {
+                brush = (Brush)Application.Current.Resources[eCores.Branco.ToString()];
+            }
+
+            return brush;
         }
     }
 }
