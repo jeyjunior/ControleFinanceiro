@@ -1,0 +1,43 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- BOTÕES -->
+    <Style x:Key="btnMenuLateral" TargetType="Button">
+        <Setter Property="Background" Value="{StaticResource Nenhuma}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Nenhuma}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="CornerRadius" Value="5"/>
+        <Setter Property="Height" Value="76"/>
+        <Setter Property="Width" Value="72"/>
+
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+    </Style>
+    
+    <!-- STACK PANEL  -->
+    <Style x:Key="spPadrao" TargetType="StackPanel">
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+    </Style>
+    
+    <!-- FONT ICON -->
+    <Style x:Key="fiMenuLateral" TargetType="FontIcon">
+        <Setter Property="FontSize" Value="30"/>
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="FontFamily" Value="Segoe UI"/>
+    </Style>
+
+    <!-- TEXT BLOCK -->
+    <Style x:Key="txbMenuLateral" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="FontWeight" Value="Light"/>
+        <Setter Property="Foreground" Value="{StaticResource Branco}"/>
+    </Style>
+
+</ResourceDictionary>

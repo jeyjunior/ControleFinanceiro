@@ -1,30 +1,52 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
+﻿
+using CF.Domain.Utilitarios;
+using CF.Presentation.Views;
+using System;
+using System.Diagnostics.Metrics;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
-
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
+using Windows.UI.Xaml.Media.Imaging;
 
 namespace CF.Presentation
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class MainPage : Windows.UI.Xaml.Controls.Page
     {
+        private Button btnSelecionado = null;
+
         public MainPage()
         {
             this.InitializeComponent();
+
+            ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
+
+            Dashboard_Click(btnDashboard, null);
+        }
+
+        private void Dashboard_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            ContentFrame.Navigate(typeof(Dashboard));
+
+            AtualizarBotaoSelecionado((Button)sender);
+        }
+
+        private void Transacao_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            ContentFrame.Navigate(typeof(Transacao));
+
+            AtualizarBotaoSelecionado((Button)sender);
+        }
+
+        private void AtualizarBotaoSelecionado(Button btn)
+        {
+            if (btn == null)
+                return;
+
+            if(btnSelecionado != null)
+                btnSelecionado.Background = Cor.ObterCor(Domain.Enums.eCores.Nenhuma);
+
+            btnSelecionado = btn;
+
+            btnSelecionado.Background = Cor.ObterCor(Domain.Enums.eCores.Cinza9);
         }
     }
 }
