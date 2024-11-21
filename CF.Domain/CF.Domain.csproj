@@ -127,6 +127,7 @@
     <Compile Include="Entities\CFTipoDePagamento.cs" />
     <Compile Include="Entities\CFTipoOperacao.cs" />
     <Compile Include="Entities\CFTipoTransacaoFinanceira.cs" />
+    <Compile Include="Enums\eBase.cs" />
     <Compile Include="Interfaces\ICFCategoriaRepository.cs" />
     <Compile Include="Interfaces\ICFRegistroFinanceiroRepository.cs" />
     <Compile Include="Interfaces\ICFStatusRepository.cs" />
@@ -135,6 +136,8 @@
     <Compile Include="Interfaces\ICFTipoOperacaoRepository.cs" />
     <Compile Include="Interfaces\ICFTipoTransacaoFinanceiraRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilitarios\Cor.cs" />
+    <Compile Include="Utilitarios\Imagem.cs" />
     <EmbeddedResource Include="Properties\CF.Domain.rd.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -146,6 +149,18 @@
     <Reference Include="JJ.UW.Core">
       <HintPath>..\_dlls\JJ.UW.Core.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Recursos\Estilos\CFCores.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Recursos\Estilos\CFEstilos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Page>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

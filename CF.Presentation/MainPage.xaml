@@ -6,9 +6,33 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Padding="0"
+    Margin="0">
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="78"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
+        <StackPanel Grid.Column="0" Background="{StaticResource Cinza10}" Padding="2,30" Spacing="8">
+
+            <Button x:Name="btnDashboard" Style="{StaticResource btnMenuLateral}" Click="Dashboard_Click">
+                <StackPanel Style="{StaticResource spPadrao}">
+                    <FontIcon   Glyph="&#x1F4CA;" Style="{StaticResource fiMenuLateral}"/>
+                    <TextBlock  Text="Dashboard"  Style="{StaticResource txbMenuLateral}"/>
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="btnTransacao" Style="{StaticResource btnMenuLateral}" Click="Transacao_Click">
+                <StackPanel     Style="{StaticResource spPadrao}">
+                    <FontIcon   Glyph="&#x1F4B5;" Style="{StaticResource fiMenuLateral}"/>
+                    <TextBlock  Text="Transações" Style="{StaticResource txbMenuLateral}"/>
+                </StackPanel>
+            </Button>
+
+        </StackPanel>
+
+        <Frame Grid.Column="1" x:Name="ContentFrame"/>
     </Grid>
 </Page>
