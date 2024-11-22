@@ -14,7 +14,6 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using JJ.UW.Core.Extensoes;
 using JJ.UW.Core.Enumerador;
-using JJ.UW.Core.Utilidades;
 using CF.Domain.DTO;
 using CF.Domain.Utilitarios;
 using CF.Domain.Enumerador;
@@ -23,11 +22,14 @@ namespace CF.Presentation.Componentes.Cartao
 {
     public sealed partial class ResumoFinanceiro : UserControl
     {
+        #region Construtor
         public ResumoFinanceiro()
         {
             this.InitializeComponent();
         }
+        #endregion
 
+        #region Metodos
         private void AtualizarOperacao(eIconesGlyph icone, Brush cor)
         {
             ficonTriangulo.AtualizarIcone(icone, cor);
@@ -47,6 +49,7 @@ namespace CF.Presentation.Componentes.Cartao
         {
             txbPorcentagem.Text = porcentagem.ToString("N0") + "%";
         }
+        #endregion
 
         #region Metodos Publico
         public void AtualizarInformacoesIniciais(ResumoFinanceiroDTO resumoFinanceiro)
@@ -57,7 +60,7 @@ namespace CF.Presentation.Componentes.Cartao
             switch (resumoFinanceiro.TipoOperacaoFinanceira)
             {
                 case eTipoOperacaoFinanceira.Todas:     break;
-                case eTipoOperacaoFinanceira.Entrada:   AtualizarOperacao(eIconesGlyph.TrianguloCima, Cor.ObterCor(eCores.Verde1)); break;
+                case eTipoOperacaoFinanceira.Entrada:   AtualizarOperacao(eIconesGlyph.TrianguloCima, Cor.ObterCor(eCores.Verde1));     break;
                 case eTipoOperacaoFinanceira.Saida:     AtualizarOperacao(eIconesGlyph.TrianguloBaixo, Cor.ObterCor(eCores.Vermelho1)); break;
             }
 

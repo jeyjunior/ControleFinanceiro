@@ -10,12 +10,12 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <cartao:ResumoFinanceiro x:Name="cartaoResumoFinanceiro"/>
 
-        <StackPanel Orientation="Vertical">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Button Click="Button_Click" Content="Verde"></Button>
             <Button Click="Button_Click_1" Content="Vermelho"></Button>
-            
+            <cartao:ResumoFinanceiro x:Name="cartaoResumoFinanceiro"/>
+            <cartao:ResumoFinanceiroSimples x:Name="cartaoResumoFinanceiroSimples"/>
         </StackPanel>
     </Grid>
 </Page>

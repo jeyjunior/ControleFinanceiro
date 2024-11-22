@@ -36,6 +36,8 @@ namespace CF.Presentation.Telas
                 ValorPago =287.99m,
                 ValorPendente = 2350.44m
             });
+
+            cartaoResumoFinanceiroSimples.AtualizarSaldo(new Domain.DTO.ResumoFinanceiroSaldoDTO { SaldoTotal = 256.44m });
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -47,6 +49,8 @@ namespace CF.Presentation.Telas
                 ValorPago = 15287.99m,
                 ValorPendente = 350.44m
             });
+
+            cartaoResumoFinanceiroSimples.AtualizarSaldo(new Domain.DTO.ResumoFinanceiroSaldoDTO { SaldoTotal = -956.56m });
         }
     }
 }

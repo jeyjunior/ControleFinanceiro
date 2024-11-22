@@ -122,6 +122,9 @@
     <Compile Include="Componentes\Cartao\ResumoFinanceiro.xaml.cs">
       <DependentUpon>ResumoFinanceiro.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Componentes\Cartao\ResumoFinanceiroSimples.xaml.cs">
+      <DependentUpon>ResumoFinanceiroSimples.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -154,6 +157,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="Componentes\Cartao\ResumoFinanceiro.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Componentes\Cartao\ResumoFinanceiroSimples.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
