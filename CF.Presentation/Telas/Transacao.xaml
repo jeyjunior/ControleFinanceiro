@@ -5,7 +5,7 @@
     xmlns:local="using:CF.Presentation.Telas"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:cartao="using:CF.Presentation.Componentes.Cartao"
+    xmlns:componente="using:CF.Presentation.Componentes"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -14,8 +14,11 @@
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Button Click="Button_Click" Content="Verde"></Button>
             <Button Click="Button_Click_1" Content="Vermelho"></Button>
-            <cartao:ResumoFinanceiro x:Name="cartaoResumoFinanceiro"/>
-            <cartao:ResumoFinanceiroSimples x:Name="cartaoResumoFinanceiroSimples"/>
+            <componente:ResumoFinanceiro x:Name="cartaoResumoFinanceiro"/>
+            <componente:ResumoFinanceiroSimples x:Name="cartaoResumoFinanceiroSimples"/>
+
+            <Button Content="Notificações" Click="Button_Click_2"/>
+            <componente:SeletorMesAno x:Name="seletorData"/>
         </StackPanel>
     </Grid>
 </Page>

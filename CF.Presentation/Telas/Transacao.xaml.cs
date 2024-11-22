@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Data.Xml.Dom;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Notifications;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -13,13 +16,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
-
 namespace CF.Presentation.Telas
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class Transacao : Page
     {
         public Transacao()
@@ -51,6 +49,20 @@ namespace CF.Presentation.Telas
             });
 
             cartaoResumoFinanceiroSimples.AtualizarSaldo(new Domain.DTO.ResumoFinanceiroSaldoDTO { SaldoTotal = -956.56m });
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            //string toastXmlString = "<toast><visual><binding template='ToastGeneric'><text>Exemplo de Notificação</text><text>Mensagem de exemplo</text></binding></visual></toast>";
+            //XmlDocument toastXml = new XmlDocument();
+            //toastXml.LoadXml(toastXmlString);
+
+            //ToastNotification toast = new ToastNotification(toastXml);
+            //ToastNotificationManager.CreateToastNotifier().Show(toast);
+
+            //MessageDialog dialog = new MessageDialog("Essa é uma mensagem de alerta.", "Alerta");
+            //dialog.Commands.Add(new UICommand("OK"));
+            //dialog.ShowAsync();
         }
     }
 }

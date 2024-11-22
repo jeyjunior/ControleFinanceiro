@@ -18,7 +18,7 @@ using CF.Domain.DTO;
 using CF.Domain.Utilitarios;
 using CF.Domain.Enumerador;
 
-namespace CF.Presentation.Componentes.Cartao
+namespace CF.Presentation.Componentes
 {
     public sealed partial class ResumoFinanceiro : UserControl
     {
