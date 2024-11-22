@@ -1,11 +1,11 @@
 ﻿
-using CF.Domain.Utilitarios;
-using CF.Presentation.Views;
 using System;
 using System.Diagnostics.Metrics;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Imaging;
+using CF.Domain.Utilitarios;
+using CF.Presentation.Telas;
 
 namespace CF.Presentation
 {
@@ -42,11 +42,11 @@ namespace CF.Presentation
                 return;
 
             if(btnSelecionado != null)
-                btnSelecionado.Background = Cor.ObterCor(Domain.Enums.eCores.Nenhuma);
+                btnSelecionado.Background = Cor.ObterCor(Domain.Enumerador.eCores.Nenhuma);
 
             btnSelecionado = btn;
 
-            btnSelecionado.Background = Cor.ObterCor(Domain.Enums.eCores.Cinza9);
+            btnSelecionado.Background = Cor.ObterCor(Domain.Enumerador.eCores.Cinza9);
         }
     }
 }

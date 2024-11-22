@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using JJ.UW.Core.Atributos;
-using JJ.UW.Core.Validation;
+using JJ.UW.Core.Validador;
 
 namespace CF.Domain.Entities
 {

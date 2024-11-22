@@ -8,7 +8,7 @@ using SimpleInjector;
 using JJ.UW.Core;
 using JJ.UW.Data;
 using JJ.UW.Data.Interfaces;
-using JJ.UW.Data.Enum;
+using JJ.UW.Data.Enumerador;
 using JJ.UW.Data.Extensoes;
 using CF.Domain.Interfaces;
 using CF.InfraData.Repositories;

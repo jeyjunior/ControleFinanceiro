@@ -119,14 +119,17 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Componentes\Cartao\ResumoFinanceiro.xaml.cs">
+      <DependentUpon>ResumoFinanceiro.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\Dashboard.xaml.cs">
+    <Compile Include="Telas\Dashboard.xaml.cs">
       <DependentUpon>Dashboard.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Transacao.xaml.cs">
+    <Compile Include="Telas\Transacao.xaml.cs">
       <DependentUpon>Transacao.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -150,15 +153,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Componentes\Cartao\ResumoFinanceiro.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Dashboard.xaml">
+    <Page Include="Telas\Dashboard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Transacao.xaml">
+    <Page Include="Telas\Transacao.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

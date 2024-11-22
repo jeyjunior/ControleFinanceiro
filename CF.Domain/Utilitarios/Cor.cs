@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media;
-using CF.Domain.Enums;
+using CF.Domain.Enumerador;
 
 namespace CF.Domain.Utilitarios
 {
