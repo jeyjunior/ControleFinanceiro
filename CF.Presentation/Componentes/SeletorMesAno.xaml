@@ -6,127 +6,57 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Width="240"
-    Loaded="UserControl_Loaded"
-    Height="226">
+    d:DesignHeight="36"
+    d:DesignWidth="201"
+    MinHeight="36"
+    MaxHeight="36"
+    MinWidth="201"
+    MaxWidth="201">
 
-    <Grid CornerRadius="0">
+    <Grid Height="36" Background="{StaticResource Cinza7}" Margin="0">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="50*"/>
-            <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="1"/>
+            <ColumnDefinition Width="100"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="0" x:Name="gMes">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="36"/>
-                <RowDefinition Height="210"/>
-            </Grid.RowDefinitions>
+        <Button x:Name="btnMes" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Novembro" Background="{StaticResource Nenhuma}" Click="btnMes_Click" KeyDown="btnMes_KeyDown"/>
+        <Frame  Grid.Column="1" Background="{StaticResource Branco}" Height="30" VerticalAlignment="Center"/>
+        <Button x:Name="btnAno" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="2024" Background="{StaticResource Nenhuma}" Click="btnAno_Click" KeyDown="btnAno_KeyDown"/>
 
-            <Button x:Name="btnSelecionarMes"
-                    CornerRadius="10"
-                    Background="Transparent"
-                    HorizontalAlignment="Stretch" 
-                    VerticalAlignment="Stretch" 
-                    VerticalContentAlignment="Center"
-                    FontSize="16"
-                    FontWeight="SemiBold"
-                    Click="btnSelecionarMes_Click"
-                    Content="Dezembro"/>
+        <Canvas Grid.Column="0" x:Name="canvasMes"  Style="{StaticResource canvasSelecionarMesData}">
+            <Popup x:Name="popupMes" Style="{StaticResource popupSelecionarMesData}" Opened="popupMes_Opened">
 
+                <Grid x:Name="gridMes" Style="{StaticResource gridSelecionarMesData}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="36"/>
+                        <RowDefinition Height="36"/>
+                        <RowDefinition Height="36"/>
+                    </Grid.RowDefinitions>
 
-            <Canvas Grid.Row="1" Grid.Column="0" x:Name="canvasMes" HorizontalAlignment="Left" VerticalAlignment="Top">
-                <Popup x:Name="popupMes" IsOpen="False" HorizontalAlignment="Left" VerticalAlignment="Top" Opened="popupMes_Opened" Closed="popupMes_Closed">
-                    <Grid Background="Transparent" CornerRadius="10" Margin="0" Padding="0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="200"/>
-                            <RowDefinition Height="30"/>
-                        </Grid.RowDefinitions>
+                    <Button x:Name="btnMesCima"     Grid.Row="0"    IsTabStop="False"   Style="{StaticResource btnSelecionarMesAno}" Click="btnSelecinarMes_Click"   PointerWheelChanged="btnSelecionarMes_PointerWheelChanged"/>
+                    <Button x:Name="btnMesMeio"     Grid.Row="1"    IsTabStop="True"    Style="{StaticResource btnSelecionarMesAno}" Click="btnSelecinarMes_Click"   PointerWheelChanged="btnSelecionarMes_PointerWheelChanged" Background="{StaticResource Cinza7}" KeyDown="btnMesMeio_KeyDown"/>
+                    <Button x:Name="btnMesBaixo"    Grid.Row="2"    IsTabStop="False"   Style="{StaticResource btnSelecionarMesAno}" Click="btnSelecinarMes_Click"   PointerWheelChanged="btnSelecionarMes_PointerWheelChanged"/>
+                </Grid>
+            </Popup>
+        </Canvas>
 
-                        <Frame Grid.Row="0" Background="Transparent" Margin="0" Padding="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
-                                <ListBox x:Name="lbMes" 
-                                         Width="115"
-                                         SelectionChanged="lbMes_SelectionChanged"
-                                         ScrollViewer.VerticalScrollMode="Enabled"
-                                         ScrollViewer.VerticalScrollBarVisibility="Visible" 
-                                         ScrollViewer.IsScrollInertiaEnabled="True"
-                                         ScrollViewer.IsDeferredScrollingEnabled="True"/>
+        <Canvas Grid.Column="2" x:Name="canvasAno"  Style="{StaticResource canvasSelecionarMesData}">
+            <Popup x:Name="popupAno" Style="{StaticResource popupSelecionarMesData}" Opened="popupAno_Opened">
+                <Grid x:Name="gridAno"  Style="{StaticResource gridSelecionarMesData}">
 
-                            </Grid>
-                        </Frame>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="36"/>
+                        <RowDefinition Height="36"/>
+                        <RowDefinition Height="36"/>
+                    </Grid.RowDefinitions>
 
-                        <Frame Grid.Row="1" Background="{StaticResource Cinza2}">
-                            <Button x:Name="btnConfirmarMes" 
-                                    HorizontalAlignment="Stretch" 
-                                    VerticalAlignment="Stretch" 
-                                    CornerRadius="0,0,10,10" 
-                                    Background="{StaticResource Verde2}"  
-                                    Click="btnConfirmarMes_Click">
-                                <SymbolIcon Symbol="Accept"/>
-                            </Button>
-                        </Frame>
-                    </Grid>
-                </Popup>
-            </Canvas>
-        </Grid>
-
-
-        <Grid Grid.Column="2" x:Name="gAno">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="36"/>
-                <RowDefinition Height="210"/>
-            </Grid.RowDefinitions>
-
-            <Button x:Name="btnSelecionarAno"
-                    Grid.Column="2"
-                    CornerRadius="10"
-                    Background="Transparent"
-                    HorizontalAlignment="Stretch" 
-                    VerticalAlignment="Stretch" 
-                    VerticalContentAlignment="Center"
-                    FontSize="16"
-                    FontWeight="SemiBold"
-                    Click="btnSelecionarAno_Click"
-                    Content="2024"/>
-
-            <Canvas Grid.Row="1" Grid.Column="2" x:Name="canvasAno" HorizontalAlignment="Left" VerticalAlignment="Top">
-                <Popup x:Name="popupAno" IsOpen="False" HorizontalAlignment="Left" VerticalAlignment="Top" Opened="popupAno_Opened" Closed="popupAno_Closed">
-                    <Grid Background="Transparent" CornerRadius="10" Margin="0" Padding="0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="200"/>
-                            <RowDefinition Height="30"/>
-                        </Grid.RowDefinitions>
-
-                        <Frame Grid.Row="0" Background="Transparent" Margin="0" Padding="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
-
-                                <ListBox x:Name="lbAno" 
-                                         Width="115"
-                                         HorizontalAlignment="Center"
-                                         SelectionChanged="lbAno_SelectionChanged"
-                                         ScrollViewer.VerticalScrollMode="Enabled"
-                                         ScrollViewer.VerticalScrollBarVisibility="Visible" 
-                                         ScrollViewer.IsScrollInertiaEnabled="True"
-                                         ScrollViewer.IsDeferredScrollingEnabled="True"/>
-
-                            </Grid>
-                        </Frame>
-
-                        <Frame Grid.Row="1" Background="{StaticResource Cinza2}">
-                            <Button x:Name="btnConfirmarAno" 
-                                    HorizontalAlignment="Stretch"  
-                                    VerticalAlignment="Stretch" 
-                                    CornerRadius="0,0,10,10" 
-                                    Background="{StaticResource Verde2}" 
-                                    Click="btnConfirmarAno_Click">
-                                <SymbolIcon Symbol="Accept"/>
-                            </Button>
-                        </Frame>
-                    </Grid>
-                </Popup>
-            </Canvas>
-        </Grid>
+                    <Button x:Name="btnAnoCima"     Grid.Row="0"    IsTabStop="False"   Style="{StaticResource btnSelecionarMesAno}" Click="btnSelecinarAno_Click"   PointerWheelChanged="btnSelecionarAno_PointerWheelChanged"/>
+                    <Button x:Name="btnAnoMeio"     Grid.Row="1"    IsTabStop="True"    Style="{StaticResource btnSelecionarMesAno}" Click="btnSelecinarAno_Click"   PointerWheelChanged="btnSelecionarAno_PointerWheelChanged" Background="{StaticResource Cinza7}" KeyDown="btnAnoMeio_KeyDown"/>
+                    <Button x:Name="btnAnoBaixo"    Grid.Row="2"    IsTabStop="False"   Style="{StaticResource btnSelecionarMesAno}" Click="btnSelecinarAno_Click"   PointerWheelChanged="btnSelecionarAno_PointerWheelChanged"/>
+                </Grid>
+            </Popup>
+        </Canvas>
 
     </Grid>
 </UserControl>

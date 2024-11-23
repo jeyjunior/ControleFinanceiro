@@ -16,7 +16,20 @@
         <Setter Property="HorizontalAlignment" Value="Stretch"/>
         <Setter Property="VerticalAlignment" Value="Stretch"/>
     </Style>
-    
+
+    <Style x:Key="btnSelecionarMesAno" TargetType="Button">
+        <Setter Property="Background" Value="{StaticResource Nenhuma}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Nenhuma}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="CornerRadius" Value="0"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Setter Property="Margin" Value="0"/>
+    </Style>
+
+
     <!-- STACK PANEL  -->
     <Style x:Key="spPadrao" TargetType="StackPanel">
         <Setter Property="Padding" Value="0"/>
@@ -38,6 +51,36 @@
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="FontWeight" Value="Light"/>
         <Setter Property="Foreground" Value="{StaticResource Branco}"/>
+    </Style>
+    
+    <!-- CANVAS -->
+    <Style x:Key="canvasSelecionarMesData" TargetType="Canvas">
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Background" Value="{StaticResource Nenhuma}"/>
+        <Setter Property="Visibility" Value="Collapsed"/>
+        <Setter Property="Height" Value="108"/>
+        <Setter Property="Width" Value="100"/>
+        <Setter Property="Margin" Value="0"/>
+    </Style>
+
+    <!-- GRID -->
+    <Style x:Key="gridSelecionarMesData" TargetType="Grid">
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Setter Property="Background" Value="{StaticResource Cinza8}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Cinza5}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="5"/>
+        <Setter Property="Width" Value="100"/>
+        <Setter Property="Margin" Value="0,-1,0,0"/>
+    </Style>
+    
+    <!-- POPUP -->
+    <Style x:Key="popupSelecionarMesData" TargetType="Popup">
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="IsOpen" Value="False"/>
     </Style>
 
 </ResourceDictionary>
