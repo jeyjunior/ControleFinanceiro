@@ -15,12 +15,12 @@ namespace CF.InfraData.Repositories
         {
         }
 
-        public IEnumerable<CFTipoTransacaoFinanceira> ObterTipoTransacaoFinanceira()
+        public IEnumerable<CFTipoTransacaoFinanceira> ObterTipoTransacaoFinanceiraInicial()
         {
             var tipoTransacaoFinanceiroCollection = new List<CFTipoTransacaoFinanceira>()
             {
-                new CFTipoTransacaoFinanceira { PK_CFTipoTransacaoFinanceira = 1, Transaco = "Entrada"},
-                new CFTipoTransacaoFinanceira { PK_CFTipoTransacaoFinanceira = 2, Transaco = "Saída"},
+                new CFTipoTransacaoFinanceira { PK_CFTipoTransacaoFinanceira = 1, Transacao = "Entrada"},
+                new CFTipoTransacaoFinanceira { PK_CFTipoTransacaoFinanceira = 2, Transacao = "Saída"},
             };
 
             return tipoTransacaoFinanceiroCollection;

@@ -11,7 +11,7 @@ namespace CF.Domain.Entities
     public class CFTipoOperacao
     {
         [ChavePrimaria, Obrigatorio]
-        public short PK_CFTipoOperacao { get; set; }
+        public int PK_CFTipoOperacao { get; set; }
         [Obrigatorio, TamanhoString(100)]
         public string Nome { get; set; }
         [Obrigatorio]

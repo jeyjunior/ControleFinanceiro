@@ -1,0 +1,135 @@
+﻿<UserControl
+    x:Class="CF.Presentation.Componentes.GridSaida"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CF.Presentation.Componentes"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    SizeChanged="UserControl_SizeChanged">
+
+    <Grid x:Name="gPrincipal" 
+      Margin="0"
+      Padding="0"
+      CornerRadius="15"
+      VerticalAlignment="Stretch"
+      HorizontalAlignment="Stretch">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Cabeçalho -->
+        <Grid x:Name="gCabecalho" Background="{StaticResource Cinza10}" BorderThickness="0,0,0,3" BorderBrush="{StaticResource Cinza11}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="36" MinWidth="36"/>
+
+                <ColumnDefinition Width="0" MinWidth="0"/>
+                <ColumnDefinition Width="0" MinWidth="0"/>
+                <ColumnDefinition Width="30" MinWidth="30"/>
+                <ColumnDefinition Width="*" MinWidth="180"/>
+                <ColumnDefinition Width="160" MinWidth="160"/>
+                <ColumnDefinition Width="130" MinWidth="130"/>
+                <ColumnDefinition Width="120" MinWidth="120"/>
+                <ColumnDefinition Width="120" MinWidth="120"/>
+                <ColumnDefinition Width="150" MinWidth="150"/>
+                <ColumnDefinition Width="36" MinWidth="36"/>
+                <ColumnDefinition Width="36" MinWidth="36"/>
+
+                <ColumnDefinition Width="36" MinWidth="36"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock x:Name="txbPK_CFRegistroFinanceiro"      Grid.Column="1"  Style="{StaticResource TextBlockCabecalhoColuna}" Text=""  Visibility="Collapsed"/>
+            <TextBlock x:Name="txbPK_CFTipoTransacaoFinanceira" Grid.Column="2"  Style="{StaticResource TextBlockCabecalhoColuna}" Text=""  Visibility="Collapsed"/>
+            <TextBlock x:Name="txbTipoTransacaoFinanceira"      Grid.Column="3"  Style="{StaticResource TextBlockCabecalhoColuna}" Text=""/>
+            <TextBlock x:Name="txbNomeCabecalho"                Grid.Column="4"  Style="{StaticResource TextBlockCabecalhoColuna}" Text="Descrição"/>
+            <TextBlock x:Name="txbCategoriaCabecalho"           Grid.Column="5"  Style="{StaticResource TextBlockCabecalhoColuna}" Text="Categoria"/>
+            <TextBlock x:Name="txbDataVencimentoCabecalho"      Grid.Column="6"  Style="{StaticResource TextBlockCabecalhoColuna}" Text="Vencimento"/>
+            <TextBlock x:Name="txbDataPagamentoCabecalho"       Grid.Column="7"  Style="{StaticResource TextBlockCabecalhoColuna}" Text="Pagamento"/>
+            <TextBlock x:Name="txbStatusCabecalho"              Grid.Column="8"  Style="{StaticResource TextBlockCabecalhoColuna}" Text="Status"/>
+            <TextBlock x:Name="txbValorCabecalho"               Grid.Column="9"  Style="{StaticResource TextBlockCabecalhoColuna}" Text="Valor"/>
+            <TextBlock x:Name="txbAlterar"                      Grid.Column="10"  Style="{StaticResource TextBlockCabecalhoColuna}" Text=""/>
+            <TextBlock x:Name="txbExcluir"                      Grid.Column="11" Style="{StaticResource TextBlockCabecalhoColuna}" Text=""/>
+
+
+        </Grid>
+
+        <!-- Conteúdo -->
+        <ListView x:Name="lvwConteudo" 
+              Grid.Row="1" 
+              Background="{StaticResource Cinza11}"
+              ItemsSource="{Binding linhas}"
+              BorderThickness="0,0,0,1" 
+              BorderBrush="{StaticResource Cinza10}"
+              Margin="0"
+              Padding="0"
+              HorizontalAlignment="Center"
+              VerticalAlignment="Stretch">
+
+            <ListView.ItemTemplate >
+                <DataTemplate>
+
+                    <!-- Cabeçalho -->
+                    <Grid x:Name="gConteudo" 
+                      Background="Transparent" 
+                      DataContextChanged="gConteudo_DataContextChanged" 
+                      BorderThickness="0,0,0,1" 
+                      BorderBrush="{StaticResource Cinza9}" 
+                      Height="48"
+                      HorizontalAlignment="Center" 
+                      Margin="0" 
+                      Padding="0">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="36" MinWidth="36"/>
+                            
+                            <ColumnDefinition Width="0" MinWidth="0"/>
+                            <ColumnDefinition Width="0" MinWidth="0"/>
+                            <ColumnDefinition Width="30" MinWidth="30"/>
+                            <ColumnDefinition Width="*" MinWidth="180"/>
+                            <ColumnDefinition Width="160" MinWidth="160"/>
+                            <ColumnDefinition Width="130" MinWidth="130"/>
+                            <ColumnDefinition Width="120" MinWidth="120"/>
+                            <ColumnDefinition Width="120" MinWidth="120"/>
+                            <ColumnDefinition Width="150" MinWidth="150"/>
+                            <ColumnDefinition Width="36" MinWidth="36"/>
+                            <ColumnDefinition Width="36" MinWidth="36"/>
+
+                            <ColumnDefinition Width="36" MinWidth="36"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock x:Name="txbCellPK_CFRegistroFinanceiro"      Grid.Column="1"  Style="{StaticResource TextBlockCelulaGrid}" Text="{Binding PK_CFRegistroFinanceiro}"      Visibility="Collapsed"/>
+                        <TextBlock x:Name="txbCellPK_CFTipoTransacaoFinanceira" Grid.Column="2"  Style="{StaticResource TextBlockCelulaGrid}" Text="{Binding PK_CFTipoTransacaoFinanceira}" Visibility="Collapsed"/>
+                        <Frame     x:Name="frameTipoTransacao"                  Grid.Column="3"  Content="" DataContextChanged="frameTipoTransacao_DataContextChanged"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <TextBlock x:Name="txbCellNomeCabecalho"                Grid.Column="4"  Style="{StaticResource TextBlockCelulaGrid}" Text="{Binding Descricao}"/>
+                        <TextBlock x:Name="txbCellCategoriaCabecalho"           Grid.Column="5"  Style="{StaticResource TextBlockCelulaGrid}" Text="{Binding Categoria}"/>
+                        <TextBlock x:Name="txbCellDataVencimentoCabecalho"      Grid.Column="6"  Style="{StaticResource TextBlockCelulaGrid}" Text="{Binding Vencimento}"/>
+                        <TextBlock x:Name="txbCellDataPagamentoCabecalho"       Grid.Column="7"  Style="{StaticResource TextBlockCelulaGrid}" Text="{Binding Pagamento}"/>
+                        <TextBlock x:Name="txbCellStatusCabecalho"              Grid.Column="8"  Style="{StaticResource TextBlockCelulaGrid}" Text="{Binding Status}"/>
+                        <TextBlock x:Name="txbCellValorCabecalho"               Grid.Column="9"  Style="{StaticResource TextBlockCelulaGrid}" Text="{Binding Valor}"/>
+                        <Button    x:Name="btnAlterar"
+                                   Grid.Column="10" 
+                                   Background="{StaticResource Nenhuma}" 
+                                   Margin="0"
+                                   Padding="0"
+                                   HorizontalAlignment="Stretch" 
+                                   VerticalAlignment="Stretch">
+                            <SymbolIcon Symbol="Edit"/>
+                        </Button>
+                        <Button    x:Name="btnExcluir"
+                                   Grid.Column="11"
+                                   Background="{StaticResource Nenhuma}" 
+                                   Margin="0"
+                                   Padding="0"
+                                   HorizontalAlignment="Stretch" 
+                                   VerticalAlignment="Stretch">
+                            
+                            <SymbolIcon Symbol="Delete"/>
+                        </Button>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</UserControl>

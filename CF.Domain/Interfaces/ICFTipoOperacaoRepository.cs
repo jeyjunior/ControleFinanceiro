@@ -11,6 +11,6 @@ namespace CF.Domain.Interfaces
 {
     public interface ICFTipoOperacaoRepository : IRepository<CFTipoOperacao>
     {
-        IEnumerable<CFTipoOperacao> ObterTipoOperacao();
+        IEnumerable<CFTipoOperacao> ObterTipoOperacaoInicial();
     }
 }

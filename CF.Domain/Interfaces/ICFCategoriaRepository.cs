@@ -10,5 +10,6 @@ namespace CF.Domain.Interfaces
 {
     public interface ICFCategoriaRepository : IRepository<CFCategoria>
     {
+        IEnumerable<string> ObterCategoriaInicial();
     }
 }

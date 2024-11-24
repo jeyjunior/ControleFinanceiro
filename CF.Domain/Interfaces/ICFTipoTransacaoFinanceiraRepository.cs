@@ -10,6 +10,6 @@ namespace CF.Domain.Interfaces
 {
     public interface ICFTipoTransacaoFinanceiraRepository : IRepository<CFTipoTransacaoFinanceira>
     {
-        IEnumerable<CFTipoTransacaoFinanceira> ObterTipoTransacaoFinanceira();
+        IEnumerable<CFTipoTransacaoFinanceira> ObterTipoTransacaoFinanceiraInicial();
     }
 }

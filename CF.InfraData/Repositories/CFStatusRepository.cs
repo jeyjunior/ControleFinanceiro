@@ -15,7 +15,7 @@ namespace CF.InfraData.Repositories
         {
         }
 
-        public IEnumerable<CFStatus> ObterStatus()
+        public IEnumerable<CFStatus> ObterStatusInicial()
         {
             var statusCollection = new List<CFStatus>() 
             {

@@ -14,7 +14,7 @@ namespace CF.InfraData.Repositories
         public CFTipoOperacaoRepository(IUnitOfWork unitOfWork) : base(unitOfWork)
         {
         }
-        public IEnumerable<CFTipoOperacao> ObterTipoOperacao()
+        public IEnumerable<CFTipoOperacao> ObterTipoOperacaoInicial()
         {
             var tipoOperacaoCollection = new List<CFTipoOperacao>()
             {

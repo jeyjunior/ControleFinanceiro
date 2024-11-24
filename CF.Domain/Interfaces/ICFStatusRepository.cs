@@ -11,6 +11,6 @@ namespace CF.Domain.Interfaces
 {
     public interface ICFStatusRepository : IRepository<CFStatus>
     {
-        IEnumerable<CFStatus> ObterStatus();
+        IEnumerable<CFStatus> ObterStatusInicial();
     }
 }

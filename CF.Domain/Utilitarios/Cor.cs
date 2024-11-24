@@ -26,5 +26,27 @@ namespace CF.Domain.Utilitarios
 
             return brush;
         }
+
+        public static string ObterCorHexadecimal(eCores eCores)
+        {
+            string corHex = "#FFFFFF";
+
+            try
+            {
+                var brush = ObterCor(eCores);
+
+                if (brush is SolidColorBrush solidColorBrush)
+                {
+                    var color = solidColorBrush.Color;
+                    corHex = $"#{color.R:X2}{color.G:X2}{color.B:X2}";
+                }
+            }
+            catch
+            {
+                corHex = "#FFFFFF";
+            }
+
+            return corHex;
+        }
     }
 }

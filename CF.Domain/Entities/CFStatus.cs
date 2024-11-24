@@ -11,7 +11,7 @@ namespace CF.Domain.Entities
     public class CFStatus
     {
         [ChavePrimaria, Obrigatorio]
-        public short PK_CFStatus { get; set; }
+        public int PK_CFStatus { get; set; }
         [Obrigatorio, TamanhoString(15)]
         public string Status { get; set; }
         [Editavel(false)]

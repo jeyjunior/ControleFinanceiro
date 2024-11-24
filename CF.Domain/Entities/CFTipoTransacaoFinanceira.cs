@@ -11,9 +11,9 @@ namespace CF.Domain.Entities
     public class CFTipoTransacaoFinanceira
     {
         [ChavePrimaria, Obrigatorio]
-        public short PK_CFTipoTransacaoFinanceira { get; set; }
+        public int PK_CFTipoTransacaoFinanceira { get; set; }
         [Obrigatorio, TamanhoString(10)]
-        public string Transaco { get; set; }
+        public string Transacao { get; set; }
         [Editavel(false)]
         public ValidarResultado Validar { get; set; } = new ValidarResultado();
     }

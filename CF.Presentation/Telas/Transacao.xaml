@@ -19,6 +19,7 @@
 
             <Button Content="Notificações" Click="Button_Click_2"/>
             <componente:SeletorMesAno x:Name="seletorData"/>
+            <componente:GridSaida x:Name="gridSaida"/>
         </StackPanel>
     </Grid>
 </Page>

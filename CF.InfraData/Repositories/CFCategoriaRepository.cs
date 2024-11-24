@@ -14,5 +14,24 @@ namespace CF.InfraData.Repositories
         public CFCategoriaRepository(IUnitOfWork unitOfWork) : base(unitOfWork)
         {
         }
+
+        public IEnumerable<string> ObterCategoriaInicial()
+        {
+            var tipoDePagamentoCollection = new List<string>()
+            {
+                "Educação",
+                "Farmácia",
+                "Impostos",
+                "Lavanderia",
+                "Lazer",
+                "Mercado",
+                "Restaurante",
+                "Saúde",
+                "Tecnologia",
+                "Transporte",
+            };
+
+            return tipoDePagamentoCollection.OrderBy(i => i).ToList();
+        }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CF.Application;
+using CF.Domain.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -20,9 +22,12 @@ namespace CF.Presentation.Telas
 {
     public sealed partial class Transacao : Page
     {
+        private readonly ICFRegistroFinanceiroRepository cFRegistroFinanceiroRepository;
         public Transacao()
         {
             this.InitializeComponent();
+
+            cFRegistroFinanceiroRepository = Bootstrap.Container.GetInstance<ICFRegistroFinanceiroRepository>();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -40,6 +45,9 @@ namespace CF.Presentation.Telas
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            var ret = cFRegistroFinanceiroRepository.ObterLista().ToList().Take(10);
+            gridSaida.BindGrid(ret);
+
             cartaoResumoFinanceiro.AtualizarInformacoesIniciais(new Domain.DTO.ResumoFinanceiroDTO
             {
                 TipoOperacaoFinanceira = Domain.Enumerador.eTipoOperacaoFinanceira.Saida,
@@ -53,6 +61,7 @@ namespace CF.Presentation.Telas
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
+
             //string toastXmlString = "<toast><visual><binding template='ToastGeneric'><text>Exemplo de Notificação</text><text>Mensagem de exemplo</text></binding></visual></toast>";
             //XmlDocument toastXml = new XmlDocument();
             //toastXml.LoadXml(toastXmlString);

@@ -14,8 +14,6 @@ namespace CF.Domain.Entities
         public int PK_CFCategoria { get; set; }
         [Obrigatorio, TamanhoString(100)]
         public string Categoria { get; set; }
-        [TamanhoString(250)]
-        public string Descricao { get; set; }
         [Editavel(false)]
         public ValidarResultado Validar { get; set; } = new ValidarResultado();
     }

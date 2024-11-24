@@ -119,6 +119,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Componentes\GridSaida.xaml.cs">
+      <DependentUpon>GridSaida.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Componentes\ResumoFinanceiro.xaml.cs">
       <DependentUpon>ResumoFinanceiro.xaml</DependentUpon>
     </Compile>
@@ -159,6 +162,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Componentes\GridSaida.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Componentes\ResumoFinanceiro.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
