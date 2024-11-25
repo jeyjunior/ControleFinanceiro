@@ -21,6 +21,9 @@ using static System.Net.Mime.MediaTypeNames;
 using System.Xml.Linq;
 using CF.Domain.Utilitarios;
 using CF.Domain.Enumerador;
+using JJ.UW.Core.DTOs;
+using JJ.UW.Core.Utilidades;
+using JJ.UW.Core.Enumerador;
 
 
 namespace CF.Presentation.Componentes
@@ -53,19 +56,25 @@ namespace CF.Presentation.Componentes
         #endregion
 
         #region Metodos
-        private string ObterStatus(int fk_CFStatus)
+        private string TratarDescricao(CFTerceiro cFTerceiro)
         {
-            if (fk_CFStatus <= 0)
+            if (cFTerceiro == null)
                 return "";
 
-            //var status = cFStatusRepository.ObterStatus().FirstOrDefault(s => s.PK_CFStatus == fk_CFStatus);
-
-            //if (status != null)
-            //    return status.Status.ObterValorOuPadrao("").Trim();
-
-            return "";
+            return cFTerceiro.Nome.ObterValorOuPadrao("").Trim();
         }
-        
+
+        private string TratarCategoria(CFTerceiro cFTerceiro)
+        {
+            if (cFTerceiro == null)
+                return "";
+
+            if (cFTerceiro.CFCategoria == null)
+                return "";
+
+            return cFTerceiro.CFCategoria.Categoria.ObterValorOuPadrao("").Trim();
+        }
+
         private string ObterTipoPagamento(int fk_CFTipoDePagamento)
         {
             if (fk_CFTipoDePagamento <= 0)
@@ -103,20 +112,17 @@ namespace CF.Presentation.Componentes
         public void BindGrid(IEnumerable<CFRegistroFinanceiro> cFRegistroFinanceiro)
         {
             linhas.Clear();
+
             var ret = cFRegistroFinanceiro.Select(i => new
             {
-                FrameInicCorFrameInicio = Cor.ObterCorHexadecimal(eCores.Rosa),
-                FrameInicCorFrameMeio = Cor.ObterCorHexadecimal(eCores.Roxo),
-                FrameInicCorFrameFim = Cor.ObterCorHexadecimal(eCores.Laranja),
-                //PK_CFRegistroFinanceiro = i.PK_CFRegistroFinanceiro,
-                //PK_CFTipoTransacaoFinanceira = i.FK_CFTipoTransacaoFinanceira,
-                //TipoTransacaoFinanceira = Cor.ObterCor(Domain.Enumerador.eCores.Laranja),
-                //Descricao = "Teste",
-                //Categoria = "Teste 2",
-                //Vencimento = i.DataVencimento.ToString("d"),
-                //Pagamento = i.DataPagamento.ObterValorOuPadrao(""),
-                //Status = i.FK_CFStatus,
-                //Valor = i.Valor.ToString("C"),
+                PK_CFRegistroFinanceiro = i.PK_CFRegistroFinanceiro,
+                PK_CFTipoTransacaoFinanceira = i.FK_CFTipoTransacaoFinanceira,
+                Descricao = TratarDescricao(i.CFTerceiro),
+                Categoria = TratarCategoria(i.CFTerceiro),
+                Vencimento = i.DataVencimento.ToString("d"),
+                Pagamento = i.DataPagamento.ObterValorOuPadrao(""),
+                Status = i.FK_CFStatus,
+                Valor = i.Valor.ToString("C"),
             })
             .ToList();
 
@@ -155,11 +161,54 @@ namespace CF.Presentation.Componentes
         }
         #endregion
 
-        private void frameTipoTransacao_DataContextChanged(FrameworkElement sender, DataContextChangedEventArgs args)
-        {
-            var frame = (Frame)sender;
 
-            frame.Background = Cor.ObterCor(eCores.Roxo);
+        private void txbCellValorCabecalho_DataContextChanged(FrameworkElement sender, DataContextChangedEventArgs args)
+        {
+            var txb = (TextBlock)sender;
+
+            var dataContext = txb.DataContext;
+
+            if (dataContext == null)
+                return;
+
+            var item = dataContext as dynamic;
+
+            if (item == null)
+                return;
+
+            var pkTipoTransacaoFinanceira = item.PK_CFTipoTransacaoFinanceira;
+
+            if (pkTipoTransacaoFinanceira == null)
+                return;
+
+            txb.Foreground = (pkTipoTransacaoFinanceira == 1) ? Cor.ObterCor(eCores.Verde2) : Cor.ObterCor(eCores.Vermelho2);
+        }
+
+        private void ficoStatus_DataContextChanged(FrameworkElement sender, DataContextChangedEventArgs args)
+        {
+            var fontIcon = (FontIcon)sender;
+
+            if (fontIcon == null)
+                return;
+
+            var status = Convert.ToInt32(fontIcon.Tag);
+
+            switch (status)
+            {
+                case 1: 
+                    fontIcon.Glyph = Imagem.ObterGlyph(eIconesGlyph.Check).Glyph;
+                    fontIcon.Foreground = Cor.ObterCor(eCores.Verde1);
+                break;
+                case 2: 
+                    fontIcon.Glyph = Imagem.ObterGlyph(eIconesGlyph.Relogio).Glyph;
+                    fontIcon.Foreground = Cor.ObterCor(eCores.Amarelo);
+                break;
+                case 3: 
+                    fontIcon.Glyph = Imagem.ObterGlyph(eIconesGlyph.Relogio).Glyph;
+                    fontIcon.Foreground = Cor.ObterCor(eCores.Vermelho2);
+                    break;
+                default: break;
+            }
         }
     }
 }

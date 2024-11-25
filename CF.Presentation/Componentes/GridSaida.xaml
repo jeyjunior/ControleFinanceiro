@@ -23,34 +23,32 @@
         <!-- Cabeçalho -->
         <Grid x:Name="gCabecalho" Background="{StaticResource Cinza10}" BorderThickness="0,0,0,3" BorderBrush="{StaticResource Cinza11}">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="36" MinWidth="36"/>
+                <ColumnDefinition Width="18"/>
 
                 <ColumnDefinition Width="0" MinWidth="0"/>
                 <ColumnDefinition Width="0" MinWidth="0"/>
-                <ColumnDefinition Width="30" MinWidth="30"/>
+                <ColumnDefinition Width="80" MinWidth="80"/>
                 <ColumnDefinition Width="*" MinWidth="180"/>
                 <ColumnDefinition Width="160" MinWidth="160"/>
                 <ColumnDefinition Width="130" MinWidth="130"/>
                 <ColumnDefinition Width="120" MinWidth="120"/>
-                <ColumnDefinition Width="120" MinWidth="120"/>
-                <ColumnDefinition Width="150" MinWidth="150"/>
+                <ColumnDefinition Width="*" MinWidth="150"/>
                 <ColumnDefinition Width="36" MinWidth="36"/>
                 <ColumnDefinition Width="36" MinWidth="36"/>
 
-                <ColumnDefinition Width="36" MinWidth="36"/>
+                <ColumnDefinition Width="18"/>
             </Grid.ColumnDefinitions>
 
             <TextBlock x:Name="txbPK_CFRegistroFinanceiro"      Grid.Column="1"  Style="{StaticResource TextBlockCabecalhoColuna}" Text=""  Visibility="Collapsed"/>
             <TextBlock x:Name="txbPK_CFTipoTransacaoFinanceira" Grid.Column="2"  Style="{StaticResource TextBlockCabecalhoColuna}" Text=""  Visibility="Collapsed"/>
-            <TextBlock x:Name="txbTipoTransacaoFinanceira"      Grid.Column="3"  Style="{StaticResource TextBlockCabecalhoColuna}" Text=""/>
+            <TextBlock x:Name="txbStatusCabecalho"              Grid.Column="3"  Style="{StaticResource TextBlockCabecalhoColuna}" Text="Status"/>
             <TextBlock x:Name="txbNomeCabecalho"                Grid.Column="4"  Style="{StaticResource TextBlockCabecalhoColuna}" Text="Descrição"/>
             <TextBlock x:Name="txbCategoriaCabecalho"           Grid.Column="5"  Style="{StaticResource TextBlockCabecalhoColuna}" Text="Categoria"/>
             <TextBlock x:Name="txbDataVencimentoCabecalho"      Grid.Column="6"  Style="{StaticResource TextBlockCabecalhoColuna}" Text="Vencimento"/>
             <TextBlock x:Name="txbDataPagamentoCabecalho"       Grid.Column="7"  Style="{StaticResource TextBlockCabecalhoColuna}" Text="Pagamento"/>
-            <TextBlock x:Name="txbStatusCabecalho"              Grid.Column="8"  Style="{StaticResource TextBlockCabecalhoColuna}" Text="Status"/>
-            <TextBlock x:Name="txbValorCabecalho"               Grid.Column="9"  Style="{StaticResource TextBlockCabecalhoColuna}" Text="Valor"/>
-            <TextBlock x:Name="txbAlterar"                      Grid.Column="10"  Style="{StaticResource TextBlockCabecalhoColuna}" Text=""/>
-            <TextBlock x:Name="txbExcluir"                      Grid.Column="11" Style="{StaticResource TextBlockCabecalhoColuna}" Text=""/>
+            <TextBlock x:Name="txbValorCabecalho"               Grid.Column="8"  Style="{StaticResource TextBlockCabecalhoColuna}" Text="Valor"/>
+            <TextBlock x:Name="txbAlterar"                      Grid.Column="9"  Style="{StaticResource TextBlockCabecalhoColuna}" Text=""/>
+            <TextBlock x:Name="txbExcluir"                      Grid.Column="10" Style="{StaticResource TextBlockCabecalhoColuna}" Text=""/>
 
 
         </Grid>
@@ -82,49 +80,34 @@
                       Padding="0">
 
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="36" MinWidth="36"/>
+                            <ColumnDefinition Width="18" MinWidth="18"/>
                             
                             <ColumnDefinition Width="0" MinWidth="0"/>
                             <ColumnDefinition Width="0" MinWidth="0"/>
-                            <ColumnDefinition Width="30" MinWidth="30"/>
+                            <ColumnDefinition Width="60" MinWidth="60"/>
                             <ColumnDefinition Width="*" MinWidth="180"/>
                             <ColumnDefinition Width="160" MinWidth="160"/>
                             <ColumnDefinition Width="130" MinWidth="130"/>
                             <ColumnDefinition Width="120" MinWidth="120"/>
-                            <ColumnDefinition Width="120" MinWidth="120"/>
-                            <ColumnDefinition Width="150" MinWidth="150"/>
+                            <ColumnDefinition Width="*" MinWidth="150"/>
                             <ColumnDefinition Width="36" MinWidth="36"/>
                             <ColumnDefinition Width="36" MinWidth="36"/>
 
-                            <ColumnDefinition Width="36" MinWidth="36"/>
+                            <ColumnDefinition Width="18" MinWidth="18"/>
                         </Grid.ColumnDefinitions>
 
                         <TextBlock x:Name="txbCellPK_CFRegistroFinanceiro"      Grid.Column="1"  Style="{StaticResource TextBlockCelulaGrid}" Text="{Binding PK_CFRegistroFinanceiro}"      Visibility="Collapsed"/>
                         <TextBlock x:Name="txbCellPK_CFTipoTransacaoFinanceira" Grid.Column="2"  Style="{StaticResource TextBlockCelulaGrid}" Text="{Binding PK_CFTipoTransacaoFinanceira}" Visibility="Collapsed"/>
-                        <Frame     x:Name="frameTipoTransacao"                  Grid.Column="3"  Content="" DataContextChanged="frameTipoTransacao_DataContextChanged"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                        <TextBlock x:Name="txbCellNomeCabecalho"                Grid.Column="4"  Style="{StaticResource TextBlockCelulaGrid}" Text="{Binding Descricao}"/>
-                        <TextBlock x:Name="txbCellCategoriaCabecalho"           Grid.Column="5"  Style="{StaticResource TextBlockCelulaGrid}" Text="{Binding Categoria}"/>
+                        <FontIcon  x:Name="ficoStatus"                          Grid.Column="3"  Tag="{Binding Status}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="14" DataContextChanged="ficoStatus_DataContextChanged"/>
+                        <TextBlock x:Name="txbCellDescricaoCabecalho"           Grid.Column="4"  Style="{StaticResource TextBlockCelulaGrid}" Text="{Binding Descricao}" HorizontalAlignment="Left" TextWrapping="Wrap" Padding="10,0"/>
+                        <TextBlock x:Name="txbCellCategoriaCabecalho"           Grid.Column="5"  Style="{StaticResource TextBlockCelulaGrid}" Text="{Binding Categoria}" TextWrapping="Wrap"/>
                         <TextBlock x:Name="txbCellDataVencimentoCabecalho"      Grid.Column="6"  Style="{StaticResource TextBlockCelulaGrid}" Text="{Binding Vencimento}"/>
                         <TextBlock x:Name="txbCellDataPagamentoCabecalho"       Grid.Column="7"  Style="{StaticResource TextBlockCelulaGrid}" Text="{Binding Pagamento}"/>
-                        <TextBlock x:Name="txbCellStatusCabecalho"              Grid.Column="8"  Style="{StaticResource TextBlockCelulaGrid}" Text="{Binding Status}"/>
-                        <TextBlock x:Name="txbCellValorCabecalho"               Grid.Column="9"  Style="{StaticResource TextBlockCelulaGrid}" Text="{Binding Valor}"/>
-                        <Button    x:Name="btnAlterar"
-                                   Grid.Column="10" 
-                                   Background="{StaticResource Nenhuma}" 
-                                   Margin="0"
-                                   Padding="0"
-                                   HorizontalAlignment="Stretch" 
-                                   VerticalAlignment="Stretch">
+                        <TextBlock x:Name="txbCellValorCabecalho"               Grid.Column="8"  Style="{StaticResource TextBlockCelulaGrid}" Text="{Binding Valor}" FontWeight="Bold" DataContextChanged="txbCellValorCabecalho_DataContextChanged"/>
+                        <Button    x:Name="btnAlterar"                          Grid.Column="9"  Background="{StaticResource Nenhuma}" Margin="0" Padding="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                             <SymbolIcon Symbol="Edit"/>
                         </Button>
-                        <Button    x:Name="btnExcluir"
-                                   Grid.Column="11"
-                                   Background="{StaticResource Nenhuma}" 
-                                   Margin="0"
-                                   Padding="0"
-                                   HorizontalAlignment="Stretch" 
-                                   VerticalAlignment="Stretch">
-                            
+                        <Button    x:Name="btnExcluir"                          Grid.Column="10" Background="{StaticResource Nenhuma}" Margin="0" Padding="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                             <SymbolIcon Symbol="Delete"/>
                         </Button>
                     </Grid>

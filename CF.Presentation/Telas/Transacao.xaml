@@ -18,8 +18,8 @@
             <componente:ResumoFinanceiroSimples x:Name="cartaoResumoFinanceiroSimples"/>
 
             <Button Content="Notificações" Click="Button_Click_2"/>
+            <componente:GridSaida x:Name="gridSaida" Width="1230" Height="400"/>
             <componente:SeletorMesAno x:Name="seletorData"/>
-            <componente:GridSaida x:Name="gridSaida"/>
         </StackPanel>
     </Grid>
 </Page>

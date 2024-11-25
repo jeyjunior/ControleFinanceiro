@@ -31,6 +31,12 @@
                 </StackPanel>
             </Button>
 
+            <FontIcon   Glyph="&#x2713;" FontFamily="Segoe UI Symbol" Foreground="Red"  Style="{StaticResource fiMenuLateral}"/>
+            <FontIcon   Glyph="&#x26A0;" FontFamily="Segoe UI Symbol" Foreground="{StaticResource Vermelho2}"  Style="{StaticResource fiMenuLateral}"/>
+
+            <FontIcon   Glyph="&#xE171;" FontFamily="Segoe UI Symbol" Foreground="{StaticResource Vermelho2}"  Style="{StaticResource fiMenuLateral}"/>
+
+            <SymbolIcon Symbol="Sort"/>
         </StackPanel>
 
         <Frame Grid.Column="1" x:Name="ContentFrame"/>

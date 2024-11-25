@@ -11,5 +11,6 @@ namespace CF.Domain.Interfaces
 {
     public interface ICFRegistroFinanceiroRepository : IRepository<CFRegistroFinanceiro>
     {
+        IEnumerable<CFRegistroFinanceiro> ObterRegistrosComDetalhes(CFRegistroFinanceiro_Request cFRegistroFinanceiro_Request);
     }
 }

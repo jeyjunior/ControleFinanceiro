@@ -45,7 +45,12 @@ namespace CF.Presentation.Telas
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            var ret = cFRegistroFinanceiroRepository.ObterLista().ToList().Take(10);
+            var ret = cFRegistroFinanceiroRepository.ObterRegistrosComDetalhes(new Domain.Entities.CFRegistroFinanceiro_Request 
+            { 
+                TipoOperacaoFinanceira = Domain.Enumerador.eTipoOperacaoFinanceira.Todas, 
+                DataVencimento = DateTime.Now,
+            }).ToList();
+
             gridSaida.BindGrid(ret);
 
             cartaoResumoFinanceiro.AtualizarInformacoesIniciais(new Domain.DTO.ResumoFinanceiroDTO

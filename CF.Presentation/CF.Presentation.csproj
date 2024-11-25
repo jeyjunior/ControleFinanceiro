@@ -138,6 +138,9 @@
     <Compile Include="Telas\Dashboard.xaml.cs">
       <DependentUpon>Dashboard.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Telas\PopupBaseDados.xaml.cs">
+      <DependentUpon>PopupBaseDados.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Telas\Transacao.xaml.cs">
       <DependentUpon>Transacao.xaml</DependentUpon>
     </Compile>
@@ -183,6 +186,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Telas\Dashboard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Telas\PopupBaseDados.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

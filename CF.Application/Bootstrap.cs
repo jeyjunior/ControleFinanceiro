@@ -12,14 +12,17 @@ namespace CF.Application
     {
         public static Container Container;
 
-        public static void Iniciar()
+        public static bool Iniciar()
         {
             Container = new Container();
             Container.Options.DefaultLifestyle = Lifestyle.Scoped;
 
-            BootstrapInfraData.Iniciar(Container);
+            if (BootstrapInfraData.Iniciar(Container))
+                return true;
 
             Container.Verify();
+
+            return false;
         }
     }
 }

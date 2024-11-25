@@ -8,7 +8,7 @@ using SimpleInjector;
 using JJ.UW.Core;
 using JJ.UW.Data;
 using JJ.UW.Data.Interfaces;
-using JJ.UW.Data.Enumerador;
+using JJ.UW.Core.Enumerador;
 using JJ.UW.Data.Extensoes;
 using CF.Domain.Interfaces;
 using CF.InfraData.Repositories;
@@ -19,15 +19,16 @@ namespace CF.InfraData
 {
     public class BootstrapInfraData
     {
-        private static eConexao Conexao { get; set; } = eConexao.SQLite;
-
         public static Container Container { get; private set; }
 
-        public static void Iniciar(Container container)
+        public static bool Iniciar(Container container)
         {
             Container = container;
 
-            Config.DefinirConexao(Conexao);
+            if (Config.PrimeiroAcesso())
+                return true;
+
+            Config.CarregarConfiguracoes();
 
             Container.Register<IUnitOfWork, UnitOfWork>(Lifestyle.Singleton);
             Container.Register<ICFCategoriaRepository, CFCategoriaRepository>(Lifestyle.Singleton);
@@ -39,6 +40,13 @@ namespace CF.InfraData
             Container.Register<ICFTipoTransacaoFinanceiraRepository, CFTipoTransacaoFinanceiraRepository>(Lifestyle.Singleton);
 
             IniciarEstrutura();
+
+            return false;
+        }
+
+        public static void DefinirConexaoAtiva(eConexao conexao)
+        {
+            Config.DefinirConexaoAtiva(conexao);
         }
 
         private static void IniciarEstrutura()
@@ -47,7 +55,7 @@ namespace CF.InfraData
 
             CriarTabelas(uow);
             InserirInformacoesIniciais(uow);
-            //InserirRegistrosParaTeste(uow);
+            InserirRegistrosParaTeste(uow);
         }
 
         private static void CriarTabelas(IUnitOfWork uow)
@@ -271,6 +279,5 @@ namespace CF.InfraData
                 throw new Exception("Falha ao criar as tabelas na base de dados.");
             }
         }
-
     }
 }

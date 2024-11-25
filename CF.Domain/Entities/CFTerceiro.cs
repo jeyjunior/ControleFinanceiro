@@ -20,6 +20,10 @@ namespace CF.Domain.Entities
 
         [TamanhoString(250)]
         public string Observacoes { get; set; }
+
+        [Editavel(false)]
+        public CFCategoria CFCategoria { get; set; }
+
         [Editavel(false)]
         public ValidarResultado Validar { get; set; } = new ValidarResultado();
     }

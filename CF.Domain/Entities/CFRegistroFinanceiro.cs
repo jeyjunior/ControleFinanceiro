@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CF.Domain.Enumerador;
 using JJ.UW.Core.Atributos;
 using JJ.UW.Core.Validador;
 
@@ -37,6 +38,18 @@ namespace CF.Domain.Entities
         public int FK_CFTipoOperacao { get; set; }
 
         [Editavel(false)]
+        public CFTerceiro CFTerceiro { get; set; }
+        
+        [Editavel(false)]
         public ValidarResultado Validar { get; set; } = new ValidarResultado();
+    }
+
+    public class CFRegistroFinanceiro_Request
+    {
+        public eTipoOperacaoFinanceira TipoOperacaoFinanceira { get; set; }
+        public DateTime DataVencimento { get; set; }
+        //public bool Ativo { get; set; }
+
+        public ValidarResultado Validacao { get; set; } = new ValidarResultado();
     }
 }
